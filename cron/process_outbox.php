@@ -15,25 +15,5 @@ spl_autoload_register(function (string $class): void {
 
 require_once ROOT . '/core/helpers.php';
 
-$outbox = ROOT . '/storage/outbox';
-$sent = ROOT . '/storage/outbox/sent';
-if (!is_dir($outbox)) {
-    mkdir($outbox, 0755, true);
-}
-if (!is_dir($sent)) {
-    mkdir($sent, 0755, true);
-}
-
-$files = glob($outbox . '/*.json') ?: [];
-foreach ($files as $file) {
-    $payload = json_decode((string) file_get_contents($file), true);
-    if (!is_array($payload)) {
-        continue;
-    }
-
-    $payload['processed_at'] = now();
-    $payload['status'] = $payload['meta']['sent_at'] ?? null ? 'sent' : 'queued_for_smtp';
-    file_put_contents($file, json_encode($payload, JSON_PRETTY_PRINT));
-    rename($file, $sent . '/' . basename($file));
-    echo basename($file) . " processed\n";
-}
+$result = Mailer::processQueue((int) ($_SERVER['argv'][1] ?? 100));
+echo "Processed {$result['processed']} queued email(s): {$result['sent']} sent, {$result['failed']} failed.\n";

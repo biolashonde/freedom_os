@@ -9,6 +9,10 @@ $router->post('/install', [InstallController::class, 'run'], [CsrfMiddleware::cl
 
 $router->get('/login', [AuthController::class, 'showLogin']);
 $router->post('/login', [AuthController::class, 'login'], [CsrfMiddleware::class]);
+$router->get('/forgot-password', [AuthController::class, 'showForgotPassword']);
+$router->post('/forgot-password', [AuthController::class, 'forgotPassword'], [CsrfMiddleware::class]);
+$router->get('/reset-password/{token}', [AuthController::class, 'showResetPassword']);
+$router->post('/reset-password/{token}', [AuthController::class, 'resetPassword'], [CsrfMiddleware::class]);
 $router->get('/register', [AuthController::class, 'showRegister']);
 $router->post('/register', [AuthController::class, 'register'], [CsrfMiddleware::class]);
 $router->post('/logout', [AuthController::class, 'logout'], [AuthMiddleware::class, CsrfMiddleware::class]);
@@ -65,6 +69,12 @@ $router->get('/admin/donations', [AdminController::class, 'donations'], [AuthMid
 $router->post('/admin/donations', [AdminController::class, 'saveDonations'], [AuthMiddleware::class, SuperAdminMiddleware::class, CsrfMiddleware::class]);
 $router->get('/admin/settings', [AdminController::class, 'settings'], [AuthMiddleware::class, SuperAdminMiddleware::class]);
 $router->post('/admin/settings', [AdminController::class, 'saveSettings'], [AuthMiddleware::class, SuperAdminMiddleware::class, CsrfMiddleware::class]);
+$router->get('/admin/email', [EmailAdminController::class, 'index'], [AuthMiddleware::class, SuperAdminMiddleware::class]);
+$router->post('/admin/email/accounts', [EmailAdminController::class, 'saveAccount'], [AuthMiddleware::class, SuperAdminMiddleware::class, CsrfMiddleware::class]);
+$router->post('/admin/email/accounts/{id}/delete', [EmailAdminController::class, 'deleteAccount'], [AuthMiddleware::class, SuperAdminMiddleware::class, CsrfMiddleware::class]);
+$router->post('/admin/email/accounts/{id}/test', [EmailAdminController::class, 'testAccount'], [AuthMiddleware::class, SuperAdminMiddleware::class, CsrfMiddleware::class]);
+$router->post('/admin/email/bulk', [EmailAdminController::class, 'bulk'], [AuthMiddleware::class, SuperAdminMiddleware::class, CsrfMiddleware::class]);
+$router->post('/admin/email/process', [EmailAdminController::class, 'process'], [AuthMiddleware::class, SuperAdminMiddleware::class, CsrfMiddleware::class]);
 $router->get('/admin/content', [ContentController::class, 'index'], [AuthMiddleware::class, SuperAdminMiddleware::class]);
 $router->post('/admin/content/devotionals', [ContentController::class, 'storeDevotional'], [AuthMiddleware::class, SuperAdminMiddleware::class, CsrfMiddleware::class]);
 $router->post('/admin/content/resources', [ContentController::class, 'storeResource'], [AuthMiddleware::class, SuperAdminMiddleware::class, CsrfMiddleware::class]);

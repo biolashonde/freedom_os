@@ -17,6 +17,9 @@
             </div>
             <button class="btn btn-primary btn-full" type="submit" style="margin-top:0.5rem">Log in</button>
         </form>
+        <p class="text-sm text-muted" style="text-align:center;margin-top:0.9rem">
+            <a href="<?= e(base_url('/forgot-password')) ?>" style="color:var(--green-text);font-weight:600">Forgot password?</a>
+        </p>
         <p class="text-sm text-muted" style="text-align:center;margin-top:1.25rem">
             New here? <a href="<?= e(base_url('/register')) ?>" style="color:var(--green-text);font-weight:600">Create your account</a>
         </p>

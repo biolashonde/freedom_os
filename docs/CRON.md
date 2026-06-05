@@ -10,6 +10,8 @@ C:\xampp\php\php.exe cron\proactive_nudges.php
 C:\xampp\php\php.exe cron\process_outbox.php
 ```
 
+The outbox processor drains the database email queue. FreedomOS tries active SMTP accounts in priority order, respects daily limits, falls back to PHP `mail()`, and finally records a file outbox copy in `storage/outbox` when live delivery is unavailable.
+
 Use `--force` only for testing weekly digest generation:
 
 ```powershell
@@ -26,7 +28,7 @@ C:\xampp\php\php.exe cron\proactive_nudges.php --force
 # Daily missed-check-in and high-risk support nudges at 7 PM
 0 19 * * * php /var/www/freedomos/cron/proactive_nudges.php >> /var/log/freedomos-nudges.log 2>&1
 
-# Process queued notifications every minute
+# Process queued email every minute
 * * * * * php /var/www/freedomos/cron/process_outbox.php >> /var/log/freedomos-outbox.log 2>&1
 ```
 

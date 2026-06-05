@@ -114,7 +114,7 @@ $isActive = function(string $path) use ($currentPath, $basePath): bool {
 
     <?php if (in_array(Auth::user()['role'] ?? 'user', ['superadmin', 'admin', 'mentor'], true)): ?>
     <div class="sidebar-label" style="margin-top:0.5rem">Admin</div>
-    <a href="<?= e(base_url('/admin')) ?>" class="sidebar-link <?= $isActive('/admin') && !$isActive('/admin/analytics') && !$isActive('/admin/donations') && !$isActive('/admin/settings') ? 'active' : '' ?>">
+    <a href="<?= e(base_url('/admin')) ?>" class="sidebar-link <?= $isActive('/admin') && !$isActive('/admin/analytics') && !$isActive('/admin/donations') && !$isActive('/admin/settings') && !$isActive('/admin/email') && !$isActive('/admin/content') ? 'active' : '' ?>">
         <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M5.34 18.66l-1.41 1.41M20 12h2M2 12h2M19.07 19.07l-1.41-1.41M5.34 5.34 3.93 3.93M12 20v2M12 2v2"/></svg>
         Admin
     </a>
@@ -131,6 +131,10 @@ $isActive = function(string $path) use ($currentPath, $basePath): bool {
     <a href="<?= e(base_url('/admin/settings')) ?>" class="sidebar-link <?= $isActive('/admin/settings') ? 'active' : '' ?>">
         <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M5.34 18.66l-1.41 1.41M20 12h2M2 12h2M19.07 19.07l-1.41-1.41M5.34 5.34 3.93 3.93M12 20v2M12 2v2"/></svg>
         Settings
+    </a>
+    <a href="<?= e(base_url('/admin/email')) ?>" class="sidebar-link <?= $isActive('/admin/email') ? 'active' : '' ?>">
+        <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        Email
     </a>
     <a href="<?= e(base_url('/admin/content')) ?>" class="sidebar-link <?= $isActive('/admin/content') ? 'active' : '' ?>">
         <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>

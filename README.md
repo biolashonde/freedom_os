@@ -32,6 +32,7 @@ The goal is not surveillance. The goal is freedom with dignity.
 - User-owned AI devotional generation through Anthropic, OpenAI, Gemini, or OpenRouter
 - AI settings page where each user stores their own provider keys
 - Donation settings for manual transfer details and donation platform links
+- Superadmin email workflow with multiple SMTP senders, queue processing, fallback delivery, bulk email, and password recovery
 - PWA manifest, service worker, offline SOS fallback, and mobile install support
 - FreedomGuard browser extension source with device tokens, rules, logs, and override flow
 - Superadmin analytics dashboard
@@ -158,6 +159,7 @@ See [docs/FREEDOMGUARD_EXTENSION.md](docs/FREEDOMGUARD_EXTENSION.md) for install
 - `/admin` for admin and mentor oversight
 - `/admin/analytics` for superadmin analytics
 - `/admin/donations` for manual transfer and donation platform settings
+- `/admin/email` for SMTP senders, email queue, bulk email, and fallback delivery
 - `/admin/content` for devotionals, music, games, videos, resources, meetings, and moderation
 - `/admin/settings` for app URL and mail settings
 
