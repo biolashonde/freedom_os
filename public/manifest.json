@@ -1,0 +1,34 @@
+{
+  "name": "FreedomOS",
+  "short_name": "FreedomOS",
+  "description": "Recovery companion with SOS, accountability, devotionals, and purpose tools.",
+  "start_url": "./dashboard",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#0f766e",
+  "orientation": "portrait",
+  "categories": ["health", "lifestyle", "productivity"],
+  "shortcuts": [
+    {
+      "name": "Open SOS",
+      "short_name": "SOS",
+      "description": "Open rescue mode quickly.",
+      "url": "./sos"
+    },
+    {
+      "name": "Daily Check-in",
+      "short_name": "Check-in",
+      "description": "Open the recovery dashboard.",
+      "url": "./dashboard"
+    }
+  ],
+  "icons": [
+    {
+      "src": "./assets/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

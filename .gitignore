@@ -1,0 +1,56 @@
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+
+# Runtime storage
+storage/*
+!storage/.gitkeep
+!storage/cache/
+storage/cache/*
+storage/cache/**
+!storage/cache/.gitkeep
+!storage/logs/
+storage/logs/*
+storage/logs/**
+!storage/logs/.gitkeep
+!storage/outbox/
+storage/outbox/*
+storage/outbox/**
+!storage/outbox/.gitkeep
+
+# Generated archives and release artifacts
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+dist/
+build/
+release/
+
+# Dependency and tool caches
+node_modules/
+vendor/
+.phpunit.cache/
+.cache/
+.parcel-cache/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
+*.tmp

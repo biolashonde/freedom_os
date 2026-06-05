@@ -1,0 +1,4 @@
+USE freedomos;
+
+ALTER TABLE users
+  ADD COLUMN IF NOT EXISTS deleted_at DATETIME DEFAULT NULL;

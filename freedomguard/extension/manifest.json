@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "FreedomGuard",
+  "version": "0.1.0",
+  "description": "FreedomOS browser blocker extension.",
+  "permissions": [
+    "storage",
+    "tabs",
+    "webNavigation"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "options_page": "options.html",
+  "action": {
+    "default_title": "FreedomGuard",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "128": "icon.svg"
+  }
+}

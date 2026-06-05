@@ -1,0 +1,24 @@
+USE freedomos;
+
+CREATE TABLE IF NOT EXISTS goals (
+  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  user_id BIGINT UNSIGNED NOT NULL,
+  category ENUM('spiritual','relational','physical','vocational','ministry') DEFAULT 'spiritual',
+  title VARCHAR(200) NOT NULL,
+  description TEXT,
+  target_date DATE DEFAULT NULL,
+  completed_at DATETIME DEFAULT NULL,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS testimonies (
+  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  user_id BIGINT UNSIGNED NOT NULL,
+  title VARCHAR(200),
+  body LONGTEXT,
+  is_public TINYINT(1) DEFAULT 0,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);

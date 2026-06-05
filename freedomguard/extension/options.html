@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FreedomGuard Options</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <p class="eyebrow">FreedomGuard</p>
+    <h1>Extension settings</h1>
+    <p class="muted">Create a device token in FreedomOS at <strong>/freedomguard</strong>, then paste it here.</p>
+
+    <form id="settings-form" class="panel">
+      <label>
+        <span>FreedomOS app URL</span>
+        <input id="appUrl" type="url" placeholder="https://your-freedomos-domain.example" required>
+      </label>
+      <label>
+        <span>Device token</span>
+        <input id="deviceToken" type="password" placeholder="fg_..." autocomplete="off">
+      </label>
+      <label class="check">
+        <input id="enabled" type="checkbox">
+        <span>Enable blocking</span>
+      </label>
+      <button type="submit">Save settings</button>
+      <p id="status" class="status" role="status"></p>
+    </form>
+
+    <section class="panel">
+      <h2>Test connection</h2>
+      <p class="muted">Checks a harmless URL against your configured FreedomOS server.</p>
+      <button id="test-button" type="button">Run test</button>
+      <pre id="test-output"></pre>
+    </section>
+  </main>
+  <script src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+USE freedomos;
+
+CREATE TABLE IF NOT EXISTS donation_settings (
+  id TINYINT UNSIGNED PRIMARY KEY DEFAULT 1,
+  manual_enabled TINYINT(1) DEFAULT 0,
+  platform_enabled TINYINT(1) DEFAULT 0,
+  headline VARCHAR(255) DEFAULT NULL,
+  body TEXT,
+  bank_name VARCHAR(150) DEFAULT NULL,
+  account_name VARCHAR(150) DEFAULT NULL,
+  account_number VARCHAR(80) DEFAULT NULL,
+  routing_code VARCHAR(80) DEFAULT NULL,
+  iban VARCHAR(120) DEFAULT NULL,
+  swift VARCHAR(80) DEFAULT NULL,
+  reference_note VARCHAR(255) DEFAULT NULL,
+  platform_links JSON DEFAULT NULL,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
